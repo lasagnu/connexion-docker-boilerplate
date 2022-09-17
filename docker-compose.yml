@@ -1,0 +1,15 @@
+version: "3.7"
+
+services:
+
+  backend:
+    env_file: .env
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 8080:8080
+    restart: on-failure:3
+    container_name: project_starter
+    volumes:
+      - ./:/app

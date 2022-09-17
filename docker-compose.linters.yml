@@ -1,0 +1,19 @@
+version: "3.7"
+
+services:
+
+  check-linters:
+    build:
+      context:  .
+      dockerfile: ./Dockerfile.linters
+    entrypoint: ["sh", "./scripts/check-linters.sh"]
+    volumes:
+      - ./:/app
+
+  fix-linters:
+    build:
+      context:  .
+      dockerfile: ./Dockerfile.linters
+    entrypoint: ["sh", "./scripts/fix-linters.sh"]
+    volumes:
+        - ./:/app

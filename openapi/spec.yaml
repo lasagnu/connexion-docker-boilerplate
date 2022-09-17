@@ -1,0 +1,41 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Project Starter
+  description: A simple connexion starter app
+
+servers:
+  - url: 'https://localhost'
+    description: default server url
+
+paths:
+  /api/v1/healthcheck:
+    get:
+      description: returns message with ok status
+      operationId: main.healthcheck
+      responses:
+        '200':
+          description: healthcheck ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+        '400':
+          description: healthcheck failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+components:
+  schemas:
+    ErrorResponse:
+      type: object
+      properties:
+        message:
+          type: string
+    SuccessResponse:
+      type: object
+      properties:
+        message:
+          type: string

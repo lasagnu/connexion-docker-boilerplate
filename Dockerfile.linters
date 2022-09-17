@@ -1,0 +1,12 @@
+FROM python:3.10-slim
+
+ENV PYTHONUNBUFFERED True
+
+ENV APP_HOME /app
+WORKDIR $APP_HOME
+
+RUN pip install black==22.6.0 isort==5.10.1
+
+COPY . ./
+
+ENTRYPOINT [ "sh", "./scripts/check-linters.sh" ]
