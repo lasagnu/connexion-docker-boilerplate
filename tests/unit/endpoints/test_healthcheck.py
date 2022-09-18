@@ -18,6 +18,4 @@ class TestHealthCheck:
         assert self.response.status_code == 200
 
     def then_ok_message_is_returned(self):
-        print("RESPONSE JSON")
-        print(self.response.json)
         assert self.response.json == {"message": "ok"}
